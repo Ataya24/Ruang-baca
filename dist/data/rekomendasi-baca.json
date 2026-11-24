@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "judul": "Dasar-Dasar Algoritma",
+    "kategori": "kuliah",
+    "alasan": "Cocok untuk persiapan kuis struktur data dan latihan logika pemrograman.",
+    "estimasiMenit": 45
+  },
+  {
+    "id": 2,
+    "judul": "Pengantar Basis Data",
+    "kategori": "kuliah",
+    "alasan": "Ringkas untuk memahami normalisasi tabel dan kueri SQL dasar.",
+    "estimasiMenit": 40
+  },
+  {
+    "id": 3,
+    "judul": "Cerita Kota Masa Lalu",
+    "kategori": "novel",
+    "alasan": "Bacaan ringan sore hari untuk jeda di antara jadwal kuliah.",
+    "estimasiMenit": 30
+  },
+  {
+    "id": 4,
+    "judul": "Hujan di Taman",
+    "kategori": "novel",
+    "alasan": "Kumpulan prosa pendek yang enak dibaca per bab saat istirahat.",
+    "estimasiMenit": 20
+  },
+  {
+    "id": 5,
+    "judul": "Jurnal Teknologi Informasi Vol. 12",
+    "kategori": "jurnal",
+    "alasan": "Referensi ringkas untuk tugas makalah rekayasa perangkat lunak.",
+    "estimasiMenit": 35
+  },
+  {
+    "id": 6,
+    "judul": "Jurnal Pendidikan No. 45",
+    "kategori": "jurnal",
+    "alasan": "Membahas teknik diskusi kelompok dan literasi di lingkungan kampus.",
+    "estimasiMenit": 25
+  }
+]

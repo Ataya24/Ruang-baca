@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "judul": "Dasar-Dasar Algoritma",
+    "penulis": "Penulis Contoh A",
+    "kategori": "kuliah",
+    "tersedia": true
+  },
+  {
+    "id": 2,
+    "judul": "Pengantar Basis Data",
+    "penulis": "Penulis Contoh B",
+    "kategori": "kuliah",
+    "tersedia": true
+  },
+  {
+    "id": 3,
+    "judul": "Jaringan Komputer Dasar",
+    "penulis": "Penulis Contoh C",
+    "kategori": "kuliah",
+    "tersedia": false
+  },
+  {
+    "id": 4,
+    "judul": "Statistika untuk Pembelajaran",
+    "penulis": "Penulis Contoh D",
+    "kategori": "kuliah",
+    "tersedia": true
+  },
+  {
+    "id": 5,
+    "judul": "Pengantar Ekonomi",
+    "penulis": "Penulis Contoh E",
+    "kategori": "kuliah",
+    "tersedia": false
+  },
+  {
+    "id": 6,
+    "judul": "Jejak di Bukit",
+    "penulis": "Penulis Contoh F",
+    "kategori": "novel",
+    "tersedia": true
+  },
+  {
+    "id": 7,
+    "judul": "Cerita Kota Masa Lalu",
+    "penulis": "Penulis Contoh G",
+    "kategori": "novel",
+    "tersedia": true
+  },
+  {
+    "id": 8,
+    "judul": "Lima Langkah Bersama",
+    "penulis": "Penulis Contoh H",
+    "kategori": "novel",
+    "tersedia": false
+  },
+  {
+    "id": 9,
+    "judul": "Hujan di Taman",
+    "penulis": "Penulis Contoh I",
+    "kategori": "novel",
+    "tersedia": true
+  },
+  {
+    "id": 10,
+    "judul": "Jurnal Teknologi Informasi Vol. 12",
+    "penulis": "Tim Editorial A",
+    "kategori": "jurnal",
+    "tersedia": true
+  },
+  {
+    "id": 11,
+    "judul": "Jurnal Pendidikan No. 45",
+    "penulis": "Tim Editorial B",
+    "kategori": "jurnal",
+    "tersedia": false
+  },
+  {
+    "id": 12,
+    "judul": "Jurnal Ekonomi dan Bisnis Vol. 8",
+    "penulis": "Tim Editorial C",
+    "kategori": "jurnal",
+    "tersedia": true
+  }
+]
