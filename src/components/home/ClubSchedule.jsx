@@ -11,7 +11,7 @@ export default function ClubSchedule() {
   );
 
   return (
-    <Section id="klub-baca" ariaLabelledby="klub-baca-heading">
+    <Section id="klub-baca" surface ariaLabelledby="klub-baca-heading">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
           <h2

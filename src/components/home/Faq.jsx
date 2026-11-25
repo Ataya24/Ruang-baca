@@ -4,7 +4,7 @@ import Section from '../layout/Section';
 
 export default function Faq() {
   return (
-    <Section id="faq" surface ariaLabelledby="faq-heading">
+    <Section id="faq" ariaLabelledby="faq-heading">
       <div className="max-w-xl">
         <h2
           id="faq-heading"

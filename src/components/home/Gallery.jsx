@@ -74,7 +74,7 @@ export default function Gallery() {
 
   return (
     <>
-      <Section id="galeri" ariaLabelledby="galeri-heading">
+      <Section id="galeri" surface ariaLabelledby="galeri-heading">
         <h2
           id="galeri-heading"
           className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"

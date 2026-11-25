@@ -4,7 +4,7 @@ import DueDateCalculator from './DueDateCalculator';
 
 export default function BookingSection() {
   return (
-    <Section id="booking" surface ariaLabelledby="booking-heading">
+    <Section id="booking" ariaLabelledby="booking-heading">
       <div className="max-w-2xl">
         <h2
           id="booking-heading"

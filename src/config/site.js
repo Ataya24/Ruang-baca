@@ -10,11 +10,11 @@ export const SITE_CONFIG = {
   navLinks: [
     { label: 'Layanan', href: '#layanan' },
     { label: 'Katalog', href: '#katalog' },
+    { label: 'Pojok Belajar', href: '#pojok-belajar' },
     { label: 'Booking Ruang', href: '#booking' },
     { label: 'Klub Baca', href: '#klub-baca' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Galeri', href: '#galeri' },
-    { label: 'Pojok Belajar', href: '#pojok-belajar' },
     { label: 'Kontak', href: '#kontak' },
   ],
   socials: [

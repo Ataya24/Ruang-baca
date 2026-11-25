@@ -24,11 +24,11 @@ export default function App() {
         <Hero />
         <Services />
         <CatalogSection />
+        <StudyCornerSection />
         <BookingSection />
         <ClubSchedule />
         <Faq />
         <Gallery />
-        <StudyCornerSection />
         <Contact />
       </main>
       <Footer />
