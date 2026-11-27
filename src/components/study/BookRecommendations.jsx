@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import { Clock, RefreshCw } from 'lucide-react';
 import { books } from '../../data/books';
 import Button from '../ui/Button';
@@ -174,12 +175,12 @@ export default function BookRecommendations() {
                     </span>
                     <h4 className="mt-2 font-heading text-base font-semibold text-ink">
                       {matchedBookId ? (
-                        <a
-                          href={`#buku-${matchedBookId}`}
+                        <Link
+                          to={`/katalog#buku-${matchedBookId}`}
                           className="transition-colors hover:text-brand hover:underline"
                         >
                           {item.judul}
-                        </a>
+                        </Link>
                       ) : (
                         item.judul
                       )}

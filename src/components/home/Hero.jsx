@@ -25,10 +25,10 @@ export default function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Button variant="primary" href="#katalog">
+            <Button variant="primary" to="/katalog">
               Telusuri Katalog Buku
             </Button>
-            <Button variant="secondary" href="#booking">
+            <Button variant="secondary" to="/booking">
               Booking Ruang Diskusi
             </Button>
           </div>

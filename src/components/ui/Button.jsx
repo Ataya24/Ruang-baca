@@ -1,6 +1,9 @@
+import { Link } from 'react-router';
+
 export default function Button({
   variant = 'primary',
   size = 'md',
+  to,
   href,
   className = '',
   children,
@@ -24,6 +27,14 @@ export default function Button({
   };
 
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`.trim();
+
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {children}
+      </Link>
+    );
+  }
 
   if (href) {
     return (

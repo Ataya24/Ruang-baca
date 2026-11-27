@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Link } from 'react-router';
 import { clubSchedule } from '../../data/schedule';
 import { getUpcomingFridays } from '../../lib/dates';
 import Section from '../layout/Section';
@@ -76,12 +77,12 @@ export default function ClubSchedule() {
                   </div>
 
                   <h3 className="mt-1 font-heading text-lg font-semibold tracking-tight text-ink">
-                    <a
-                      href={`#buku-${item.id}`}
+                    <Link
+                      to={`/katalog#buku-${item.id}`}
                       className="transition-colors hover:text-brand hover:underline"
                     >
                       {item.judul}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="mt-0.5 text-sm text-muted">
                     oleh {item.penulis} · Moderator: {item.pembahas}

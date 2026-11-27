@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import Section from '../layout/Section';
 
 const SERVICES = [
@@ -7,7 +8,7 @@ const SERVICES = [
     meta: 'Maks. 3 buku · 14 hari',
     description:
       'Pinjam buku kuliah, novel, dan jurnal dengan opsi perpanjangan satu kali di meja pengurus.',
-    href: '#katalog',
+    to: '/katalog',
     linkLabel: 'Buka katalog buku',
   },
   {
@@ -16,7 +17,7 @@ const SERVICES = [
     meta: 'Slot 2 jam · 4-8 orang',
     description:
       'Ruang tertutup berpapan tulis untuk kerja kelompok dengan jadwal ketersediaan yang transparan.',
-    href: '#booking',
+    to: '/booking',
     linkLabel: 'Cek slot tersedia',
   },
   {
@@ -25,29 +26,31 @@ const SERVICES = [
     meta: 'Setiap Jumat · 16.00 WIB',
     description:
       'Sesi bedah buku terbuka bersama moderator mahasiswa di Ruang Diskusi tanpa biaya pendaftaran.',
-    href: '#klub-baca',
+    to: '/klub-baca',
     linkLabel: 'Lihat jadwal Jumat',
   },
 ];
 
-export default function Services() {
+export default function Services({ headingAs = 'h2' }) {
+  const HeadingTag = headingAs;
+
   return (
     <Section id="layanan" tone="surface" compact ariaLabelledby="layanan-heading">
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
-          <h2
+          <HeadingTag
             id="layanan-heading"
             className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
           >
             Layanan Utama
-          </h2>
+          </HeadingTag>
           <p className="mt-3 text-base leading-relaxed text-muted">
             Tiga fasilitas gratis yang dapat dimanfaatkan seluruh mahasiswa dengan Kartu Tanda Mahasiswa aktif.
           </p>
         </div>
 
         <ol className="divide-y divide-line border-t border-b border-line lg:col-span-8">
-          {SERVICES.map(({ number, title, meta, description, href, linkLabel }) => (
+          {SERVICES.map(({ number, title, meta, description, to, linkLabel }) => (
             <li
               key={title}
               className="grid gap-3 py-6 sm:grid-cols-12 sm:items-baseline sm:gap-6"
@@ -67,12 +70,12 @@ export default function Services() {
                 </p>
               </div>
               <div className="sm:col-span-3 sm:text-right">
-                <a
-                  href={href}
+                <Link
+                  to={to}
                   className="inline-flex min-h-11 items-center text-sm font-medium text-brand underline-offset-4 transition-colors hover:text-brand-hover hover:underline sm:min-h-10"
                 >
                   {linkLabel}
-                </a>
+                </Link>
               </div>
             </li>
           ))}

@@ -1,45 +1,45 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 
 const HASH_PREFIX = '#buku-';
 
-function getBookIdFromHash(books) {
-  if (typeof window === 'undefined') return null;
-  const hash = window.location.hash;
-  if (!hash.startsWith(HASH_PREFIX)) return null;
+function getBookIdFromHash(hash, books) {
+  if (!hash || !hash.startsWith(HASH_PREFIX)) return null;
   const candidateId = decodeURIComponent(hash.slice(HASH_PREFIX.length));
   const exists = books.some((book) => book.id === candidateId);
   return exists ? candidateId : null;
 }
 
 export function useBookModal(allBooks, filteredBooks) {
-  const [selectedId, setSelectedId] = useState(() => getBookIdFromHash(allBooks));
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [selectedId, setSelectedId] = useState(() =>
+    getBookIdFromHash(location.hash, allBooks)
+  );
 
   useEffect(() => {
-    const onHashChange = () => {
-      setSelectedId(getBookIdFromHash(allBooks));
-    };
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, [allBooks]);
+    setSelectedId(getBookIdFromHash(location.hash, allBooks));
+  }, [location.hash, allBooks]);
 
-  const open = useCallback((bookId) => {
-    setSelectedId(bookId);
-    const nextHash = `${HASH_PREFIX}${encodeURIComponent(bookId)}`;
-    if (window.location.hash !== nextHash) {
-      window.history.replaceState(null, '', nextHash);
-    }
-  }, []);
+  const open = useCallback(
+    (bookId) => {
+      setSelectedId(bookId);
+      const nextHash = `${HASH_PREFIX}${encodeURIComponent(bookId)}`;
+      if (location.hash !== nextHash) {
+        navigate(`${location.pathname}${location.search}${nextHash}`, {
+          replace: true,
+        });
+      }
+    },
+    [location.hash, location.pathname, location.search, navigate]
+  );
 
   const close = useCallback(() => {
     setSelectedId(null);
-    if (window.location.hash.startsWith(HASH_PREFIX)) {
-      window.history.replaceState(
-        null,
-        '',
-        `${window.location.pathname}${window.location.search}`
-      );
+    if (location.hash.startsWith(HASH_PREFIX)) {
+      navigate(`${location.pathname}${location.search}`, { replace: true });
     }
-  }, []);
+  }, [location.hash, location.pathname, location.search, navigate]);
 
   const selectedBook = selectedId
     ? allBooks.find((book) => book.id === selectedId) ?? null

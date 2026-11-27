@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
 import { isLibraryOpenWIB } from '../../lib/dates';
@@ -8,6 +9,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(() => isLibraryOpenWIB());
   const toggleBtnRef = useRef(null);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const refresh = () => setIsOpen(isLibraryOpenWIB());
@@ -36,12 +42,12 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-4 px-5">
         <div className="flex items-center gap-3">
-          <a
-            href="#beranda"
-            className="font-heading text-xl font-semibold tracking-tight text-ink"
+          <Link
+            to="/"
+            className="font-heading text-xl font-semibold tracking-tight text-ink transition-colors hover:text-brand"
           >
             {SITE_CONFIG.shortName}
-          </a>
+          </Link>
           <Badge tone={isOpen ? 'success' : 'danger'} dot role="status">
             {isOpen ? 'Buka' : 'Tutup'}
           </Badge>
@@ -50,13 +56,19 @@ export default function Navbar() {
         <nav aria-label="Navigasi utama" className="hidden lg:block">
           <ul className="flex list-none items-center gap-0.5 text-sm font-medium">
             {SITE_CONFIG.navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="inline-flex min-h-10 items-center rounded-lg px-2.5 text-muted transition-colors hover:bg-surface hover:text-ink"
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `inline-flex min-h-10 items-center rounded-lg px-2.5 transition-colors ${
+                      isActive
+                        ? 'bg-brand-soft font-semibold text-brand'
+                        : 'text-muted hover:bg-surface hover:text-ink'
+                    }`
+                  }
                 >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -91,15 +103,37 @@ export default function Navbar() {
           className="border-t border-line bg-paper px-5 py-3 lg:hidden"
         >
           <ul className="grid gap-1 text-sm font-medium">
+            <li>
+              <NavLink
+                to="/"
+                end
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `flex min-h-11 items-center rounded-lg px-3 transition-colors ${
+                    isActive
+                      ? 'bg-brand-soft font-semibold text-brand'
+                      : 'text-ink hover:bg-surface'
+                  }`
+                }
+              >
+                Beranda
+              </NavLink>
+            </li>
             {SITE_CONFIG.navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
                   onClick={() => setMenuOpen(false)}
-                  className="flex min-h-11 items-center rounded-lg px-3 text-ink transition-colors hover:bg-surface"
+                  className={({ isActive }) =>
+                    `flex min-h-11 items-center rounded-lg px-3 transition-colors ${
+                      isActive
+                        ? 'bg-brand-soft font-semibold text-brand'
+                        : 'text-ink hover:bg-surface'
+                    }`
+                  }
                 >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

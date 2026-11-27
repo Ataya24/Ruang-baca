@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { SITE_CONFIG } from '../../config/site';
 
 export default function Footer() {
@@ -6,12 +7,12 @@ export default function Footer() {
       <div className="mx-auto max-w-[1120px] px-5">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <a
-              href="#beranda"
-              className="font-heading text-xl font-semibold tracking-tight text-ink"
+            <Link
+              to="/"
+              className="font-heading text-xl font-semibold tracking-tight text-ink transition-colors hover:text-brand"
             >
               {SITE_CONFIG.name}
-            </a>
+            </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               {SITE_CONFIG.tagline}
             </p>
@@ -21,13 +22,13 @@ export default function Footer() {
             <h2 className="font-sans text-sm font-semibold text-ink">Navigasi</h2>
             <ul className="mt-2 grid grid-cols-2 gap-x-4 text-sm text-muted">
               {SITE_CONFIG.navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
                     className="inline-flex min-h-10 items-center transition-colors hover:text-brand hover:underline"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
