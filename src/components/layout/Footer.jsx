@@ -2,13 +2,13 @@ import { SITE_CONFIG } from '../../config/site';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-white py-12">
+    <footer className="border-t border-line bg-surface py-12">
       <div className="mx-auto max-w-[1120px] px-5">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <a
               href="#beranda"
-              className="font-heading text-lg font-semibold tracking-tight text-ink"
+              className="font-heading text-xl font-semibold tracking-tight text-ink"
             >
               {SITE_CONFIG.name}
             </a>
@@ -18,13 +18,13 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Tautan cepat" className="md:col-span-4">
-            <h2 className="font-sans text-sm font-medium text-ink">Navigasi</h2>
-            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted">
+            <h2 className="font-sans text-sm font-semibold text-ink">Navigasi</h2>
+            <ul className="mt-2 grid grid-cols-2 gap-x-4 text-sm text-muted">
               {SITE_CONFIG.navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="inline-block py-0.5 transition-colors hover:text-brand"
+                    className="inline-flex min-h-10 items-center transition-colors hover:text-brand hover:underline"
                   >
                     {link.label}
                   </a>
@@ -34,7 +34,7 @@ export default function Footer() {
           </nav>
 
           <div className="md:col-span-3">
-            <h2 className="font-sans text-sm font-medium text-ink">Ikuti Kami</h2>
+            <h2 className="font-sans text-sm font-semibold text-ink">Ikuti Kami</h2>
             <div className="mt-3 flex gap-2.5">
               {SITE_CONFIG.socials.map((social) => (
                 <a
@@ -44,7 +44,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   title={social.label}
-                  className="inline-flex size-11 items-center justify-center rounded-lg border border-line bg-white text-ink transition-colors hover:border-brand/40 hover:bg-surface hover:text-brand"
+                  className="inline-flex size-11 items-center justify-center rounded-lg border border-field-border bg-white text-ink transition-colors hover:border-brand hover:bg-paper hover:text-brand"
                 >
                   {social.id === 'instagram' ? (
                     <svg

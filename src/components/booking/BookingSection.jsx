@@ -4,11 +4,11 @@ import DueDateCalculator from './DueDateCalculator';
 
 export default function BookingSection() {
   return (
-    <Section id="booking" ariaLabelledby="booking-heading">
+    <Section id="booking" tone="paper" ariaLabelledby="booking-heading">
       <div className="max-w-2xl">
         <h2
           id="booking-heading"
-          className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
+          className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
         >
           Booking Ruang Diskusi
         </h2>

@@ -74,15 +74,18 @@ export default function Gallery() {
 
   return (
     <>
-      <Section id="galeri" surface ariaLabelledby="galeri-heading">
-        <h2
-          id="galeri-heading"
-          className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
-        >
-          Galeri
-        </h2>
+      <Section id="galeri" tone="surface" compact ariaLabelledby="galeri-heading">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h2
+            id="galeri-heading"
+            className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
+          >
+            Suasana Ruang Baca
+          </h2>
+          <p className="text-sm text-muted">Klik foto untuk memperbesar tampilan</p>
+        </div>
 
-        <div className="mt-8 grid gap-4 lg:grid-cols-12">
+        <div className="mt-7 grid gap-4 lg:grid-cols-12">
           <button
             type="button"
             onClick={() => setSelected(featured)}
@@ -97,7 +100,7 @@ export default function Gallery() {
               loading="lazy"
               className="aspect-[4/3] h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
-            <span className="absolute right-4 bottom-4 rounded-full bg-ink/80 px-3.5 py-1.5 text-xs font-medium text-white">
+            <span className="absolute right-3.5 bottom-3.5 rounded-md bg-ink/90 px-3 py-1.5 text-xs font-medium text-white">
               {featured.caption}
             </span>
           </button>
@@ -119,7 +122,7 @@ export default function Gallery() {
                   loading="lazy"
                   className="aspect-[16/10] h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
-                <span className="absolute right-4 bottom-4 rounded-full bg-ink/80 px-3.5 py-1.5 text-xs font-medium text-white">
+                <span className="absolute right-3.5 bottom-3.5 rounded-md bg-ink/90 px-3 py-1.5 text-xs font-medium text-white">
                   {photo.caption}
                 </span>
               </button>

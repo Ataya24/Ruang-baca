@@ -34,11 +34,11 @@ export default function Contact() {
   }
 
   return (
-    <Section id="kontak" ariaLabelledby="kontak-heading">
+    <Section id="kontak" tone="paper" ariaLabelledby="kontak-heading">
       <div className="max-w-xl">
         <h2
           id="kontak-heading"
-          className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
+          className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
         >
           Kontak &amp; Lokasi
         </h2>
@@ -47,22 +47,38 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-3">
-        <article className="flex flex-col justify-between rounded-card border border-line bg-white p-6">
-          <div>
-            <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-              <MapPin size={20} aria-hidden="true" />
+      <div className="mt-8 grid gap-6 lg:grid-cols-12">
+        <article className="flex flex-col justify-between rounded-card border border-line bg-white p-6 lg:col-span-7">
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div>
+              <p className="inline-flex items-center gap-1.5 text-xs font-medium text-muted">
+                <MapPin size={14} aria-hidden="true" className="text-brand" />
+                Alamat Ruang Baca
+              </p>
+              <h3 className="mt-2 font-heading text-xl font-semibold tracking-tight text-ink">
+                {SITE_CONFIG.address}
+              </h3>
+              <p className="mt-1 text-sm text-muted">{SITE_CONFIG.addressNote}</p>
             </div>
-            <h3 className="mt-4 font-heading text-lg font-semibold tracking-tight text-ink">
-              Alamat
-            </h3>
-            <p className="mt-2 text-sm font-medium text-ink">
-              {SITE_CONFIG.address}
-            </p>
-            <p className="mt-1 text-sm text-muted">{SITE_CONFIG.addressNote}</p>
+
+            <div className="border-t border-line pt-5 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="inline-flex items-center gap-1.5 text-xs font-medium text-muted">
+                  <Clock size={14} aria-hidden="true" className="text-brand" />
+                  Jam Operasional
+                </p>
+                <Badge tone={isOpen ? 'success' : 'danger'} dot>
+                  {isOpen ? 'Sedang buka' : 'Sedang tutup'}
+                </Badge>
+              </div>
+              <p className="mt-2 text-sm font-semibold text-ink">
+                {SITE_CONFIG.hoursLabel}
+              </p>
+              <p className="mt-1 text-sm text-muted">{SITE_CONFIG.closedLabel}</p>
+            </div>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
             <Button
               variant="secondary"
               size="sm"
@@ -81,74 +97,54 @@ export default function Contact() {
                 </>
               )}
             </Button>
+            <p className="text-xs text-muted">
+              Semua jadwal mengikuti waktu Indonesia Barat (WIB).
+            </p>
             <span className="sr-only" aria-live="polite">
               {copied ? 'Alamat berhasil disalin ke papan klip.' : ''}
             </span>
           </div>
         </article>
 
-        <article className="flex flex-col justify-between rounded-card border border-line bg-white p-6">
+        <article className="flex flex-col justify-between rounded-card border border-line bg-surface p-6 lg:col-span-5">
           <div>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-                <Clock size={20} aria-hidden="true" />
-              </div>
-              <Badge tone={isOpen ? 'success' : 'danger'} dot>
-                {isOpen ? 'Sedang buka' : 'Sedang tutup'}
-              </Badge>
-            </div>
-            <h3 className="mt-4 font-heading text-lg font-semibold tracking-tight text-ink">
-              Jam Buka
-            </h3>
-            <p className="mt-2 text-sm font-medium text-ink">
-              {SITE_CONFIG.hoursLabel}
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-muted">
+              <Mail size={14} aria-hidden="true" className="text-brand" />
+              Layanan Pengurus
             </p>
-            <p className="mt-1 text-sm text-muted">{SITE_CONFIG.closedLabel}</p>
-          </div>
-
-          <p className="mt-6 text-xs text-muted">
-            Semua jadwal mengikuti waktu Indonesia Barat (WIB).
-          </p>
-        </article>
-
-        <article className="flex flex-col justify-between rounded-card border border-line bg-white p-6">
-          <div>
-            <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-              <Mail size={20} aria-hidden="true" />
-            </div>
-            <h3 className="mt-4 font-heading text-lg font-semibold tracking-tight text-ink">
+            <h3 className="mt-2 font-heading text-xl font-semibold tracking-tight text-ink">
               Hubungi Pengurus
             </h3>
-            <p className="mt-2 text-sm text-muted">
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Untuk konfirmasi booking ruang diskusi, cek ketersediaan buku, atau usulan koleksi baru.
+            </p>
+            <p className="mt-4 text-sm text-muted">
               Email:{' '}
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="font-medium text-brand hover:underline"
+                className="font-medium text-brand underline-offset-4 hover:underline"
               >
                 {SITE_CONFIG.email}
               </a>
             </p>
-            <p className="mt-1 text-sm text-muted">
-              Respon cepat untuk konfirmasi booking ruang dan ketersediaan buku.
-            </p>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 border-t border-line pt-5">
             {waHref ? (
               <Button
                 variant="primary"
-                size="sm"
+                size="md"
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto"
+                className="w-full"
               >
-                <MessageCircle size={15} aria-hidden="true" />
-                Chat via WhatsApp
+                <MessageCircle size={16} aria-hidden="true" />
+                Chat Pengurus via WhatsApp
               </Button>
             ) : (
-              <Button variant="primary" size="sm" disabled>
-                Chat via WhatsApp
+              <Button variant="primary" size="md" disabled className="w-full">
+                Chat Pengurus via WhatsApp
               </Button>
             )}
           </div>

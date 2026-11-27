@@ -104,8 +104,8 @@ export default function BookModal({
     >
       {book && (
         <div>
-          <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-white/95 px-6 py-4 backdrop-blur-sm">
-            <span className="rounded-full bg-brand-soft px-3 py-0.5 text-xs font-medium text-brand">
+          <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-white px-6 py-4">
+            <span className="rounded-md bg-brand-soft px-2.5 py-0.5 text-xs font-medium text-brand">
               {CATEGORY_LABELS[book.kategori] ?? book.kategori}
             </span>
             <button
@@ -113,7 +113,7 @@ export default function BookModal({
               autoFocus
               onClick={() => dialogRef.current?.close()}
               aria-label="Tutup detail buku"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:bg-surface hover:text-ink"
+              className="inline-flex size-11 items-center justify-center rounded-lg border border-field-border text-ink transition-colors hover:bg-surface"
             >
               <X size={18} aria-hidden="true" />
             </button>

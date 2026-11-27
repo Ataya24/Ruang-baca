@@ -11,12 +11,12 @@ export default function Hero() {
   ];
 
   return (
-    <Section id="beranda" ariaLabelledby="hero-heading" className="pt-12 md:pt-20">
+    <Section id="beranda" tone="paper" ariaLabelledby="hero-heading" className="pt-10 md:pt-16">
       <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-6">
           <h1
             id="hero-heading"
-            className="font-heading text-[36px] leading-[1.14] font-semibold tracking-tight text-ink md:text-[56px] md:leading-[1.08]"
+            className="font-heading text-[clamp(2.1rem,4.6vw,3.45rem)] leading-[1.08] font-semibold tracking-tight text-ink"
           >
             Ruang baca tenang untuk belajar dan berdiskusi.
           </h1>
@@ -24,19 +24,19 @@ export default function Hero() {
             Perpustakaan komunitas yang dikelola mahasiswa. Telusuri katalog buku lengkap dengan lokasi rak, cek slot Ruang Diskusi, dan ikuti Klub Baca setiap Jumat sore.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button variant="primary" href="#katalog">
-              Lihat Katalog
+              Telusuri Katalog Buku
             </Button>
             <Button variant="secondary" href="#booking">
-              Booking Ruang
+              Booking Ruang Diskusi
             </Button>
           </div>
 
-          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-line pt-6">
+          <dl className="mt-9 grid grid-cols-3 gap-4 border-t border-line pt-6 sm:gap-6">
             {stats.map((item) => (
               <div key={item.label}>
-                <dd className="font-heading text-2xl font-semibold tracking-tight text-ink">
+                <dd className="font-heading text-2xl font-semibold tracking-tight text-ink sm:text-[28px]">
                   {item.value}
                 </dd>
                 <dt className="mt-0.5 text-xs text-muted">{item.label}</dt>
@@ -45,7 +45,7 @@ export default function Hero() {
           </dl>
         </div>
 
-        <div className="lg:col-span-6">
+        <figure className="lg:col-span-6">
           <img
             src="/img/library-2.jpg"
             alt="Rak buku dan suasana belajar di Ruang Baca Kampus"
@@ -54,7 +54,11 @@ export default function Hero() {
             fetchPriority="high"
             className="aspect-[16/11] w-full rounded-media border border-line object-cover"
           />
-        </div>
+          <figcaption className="mt-2.5 flex items-center justify-between text-xs text-muted">
+            <span>Gedung Kegiatan Mahasiswa, Lantai 1</span>
+            <span>Senin - Jumat, 08.00 - 20.00 WIB</span>
+          </figcaption>
+        </figure>
       </div>
     </Section>
   );

@@ -28,12 +28,12 @@ export default function CatalogSection() {
   const modal = useBookModal(books, filteredBooks);
 
   return (
-    <Section id="katalog" ariaLabelledby="katalog-heading">
+    <Section id="katalog" tone="paper" ariaLabelledby="katalog-heading">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
           <h2
             id="katalog-heading"
-            className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
+            className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
           >
             Katalog Buku
           </h2>
@@ -64,7 +64,7 @@ export default function CatalogSection() {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Ketik judul, penulis, atau rak..."
-              className="h-11 w-full rounded-[10px] border border-line bg-white pr-4 pl-10 text-sm text-ink placeholder:text-muted transition-colors focus:border-brand"
+              className="h-11 w-full rounded-lg border border-field-border bg-white pr-4 pl-10 text-sm text-ink placeholder:text-muted transition-colors focus:border-brand"
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckSquare, Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import Button from '../ui/Button';
 
 const INITIAL_TODOS = [
@@ -45,30 +45,28 @@ export default function ReadingTodoList() {
   return (
     <article className="flex h-full flex-col justify-between rounded-card border border-line bg-white p-6">
       <div>
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2.5">
-            <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-              <CheckSquare size={20} aria-hidden="true" />
-            </div>
-            <div>
-              <h3 className="font-heading text-lg font-semibold tracking-tight text-ink">
-                Daftar Rencana Baca
-              </h3>
-              <p className="text-xs text-muted">
-                Kelola daftar bacaan dan target belajarmu
-              </p>
-            </div>
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h3 className="font-heading text-xl font-semibold tracking-tight text-ink">
+              Daftar Rencana Baca
+            </h3>
+            <p className="mt-1 text-xs text-muted">
+              Kelola daftar bacaan dan target belajarmu
+            </p>
           </div>
-          <span className="rounded-full bg-surface px-2.5 py-0.5 text-xs font-medium text-muted border border-line">
+          <span className="rounded-md border border-line bg-paper px-2.5 py-0.5 text-xs font-medium text-muted">
             {completedCount}/{todos.length} selesai
           </span>
         </div>
 
         <form onSubmit={handleAdd} noValidate className="mt-5">
-          <label htmlFor="input-todo-baca" className="sr-only">
+          <label
+            htmlFor="input-todo-baca"
+            className="mb-1.5 block text-sm font-medium text-ink"
+          >
             Tambah rencana baca
           </label>
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-2 sm:flex-row">
             <input
               id="input-todo-baca"
               type="text"
@@ -80,8 +78,8 @@ export default function ReadingTodoList() {
               placeholder="Contoh: Ringkas bab 3 Basis Data"
               aria-invalid={error ? 'true' : 'false'}
               aria-describedby={error ? 'err-todo-baca' : undefined}
-              className={`h-11 min-w-0 flex-1 rounded-[10px] border bg-white px-3.5 text-sm text-ink placeholder:text-muted transition-colors ${
-                error ? 'border-danger' : 'border-line focus:border-brand'
+              className={`h-11 min-w-0 flex-1 rounded-lg border bg-white px-3.5 text-sm text-ink placeholder:text-muted transition-colors ${
+                error ? 'border-danger' : 'border-field-border focus:border-brand'
               }`}
             />
             <Button type="submit" variant="primary" size="md">
@@ -97,25 +95,25 @@ export default function ReadingTodoList() {
         </form>
 
         {todos.length === 0 ? (
-          <div className="mt-5 rounded-card border border-dashed border-line bg-surface p-6 text-center text-sm text-muted">
-            Belum ada rencana baca. Tambahkan target belajarmu di atas.
+          <div className="mt-5 rounded-card border border-dashed border-field-border bg-paper p-6 text-center text-sm text-muted">
+            Belum ada rencana baca. Tambahkan target belajarmu di kolom di atas.
           </div>
         ) : (
           <ul className="mt-4 divide-y divide-line rounded-card border border-line">
             {todos.map((item) => (
               <li
                 key={item.id}
-                className="flex items-center justify-between gap-3 px-3.5 py-2.5"
+                className="flex items-center justify-between gap-2 px-3 py-1.5"
               >
-                <label className="flex min-w-0 flex-1 items-center gap-3 text-sm text-ink">
+                <label className="flex min-h-11 min-w-0 flex-1 items-center gap-3 text-sm text-ink">
                   <input
                     type="checkbox"
                     checked={item.done}
                     onChange={() => handleToggle(item.id)}
-                    className="size-4 shrink-0 rounded border-line accent-brand"
+                    className="size-4 shrink-0 rounded border-field-border accent-brand"
                   />
                   <span
-                    className={`truncate ${
+                    className={`break-words ${
                       item.done ? 'text-muted line-through' : 'text-ink'
                     }`}
                   >
@@ -127,9 +125,9 @@ export default function ReadingTodoList() {
                   type="button"
                   onClick={() => handleDelete(item.id)}
                   aria-label={`Hapus ${item.text}`}
-                  className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg text-muted transition-colors hover:bg-danger-soft hover:text-danger"
+                  className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg text-muted transition-colors hover:bg-danger-soft hover:text-danger"
                 >
-                  <Trash2 size={15} aria-hidden="true" />
+                  <Trash2 size={16} aria-hidden="true" />
                 </button>
               </li>
             ))}

@@ -12,10 +12,10 @@ import Contact from './components/home/Contact';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-ink antialiased">
+    <div className="min-h-screen bg-paper font-sans text-ink antialiased">
       <a
         href="#konten-utama"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-[10px] focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"
       >
         Lewati ke konten utama
       </a>

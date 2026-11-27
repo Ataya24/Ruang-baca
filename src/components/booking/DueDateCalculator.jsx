@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { CalendarClock } from 'lucide-react';
 import {
   addDaysISO,
   formatTanggalIndonesia,
@@ -26,10 +25,10 @@ export default function DueDateCalculator() {
 
     if (remainingDays > 0) {
       statusText = `Sisa ${remainingDays} hari lagi`;
-      statusTone = remainingDays <= 3 ? 'brand' : 'success';
+      statusTone = remainingDays <= 3 ? 'accent' : 'success';
     } else if (remainingDays === 0) {
       statusText = 'Jatuh tempo hari ini';
-      statusTone = 'brand';
+      statusTone = 'accent';
     } else {
       const lateDays = Math.abs(remainingDays);
       statusText = `Terlambat ${lateDays} hari (denda Rp${(lateDays * 1000).toLocaleString('id-ID')}/buku)`;
@@ -47,24 +46,19 @@ export default function DueDateCalculator() {
   return (
     <aside
       aria-labelledby="kalkulator-heading"
-      className="flex h-full flex-col justify-between rounded-card border border-line bg-white p-6"
+      className="flex h-full flex-col justify-between rounded-card border border-line bg-surface p-6"
     >
       <div>
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-            <CalendarClock size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <h3
-              id="kalkulator-heading"
-              className="font-heading text-lg font-semibold tracking-tight text-ink"
-            >
-              Kalkulator Jatuh Tempo
-            </h3>
-            <p className="text-xs text-muted">
-              Masa pinjam 14 hari, perpanjangan 1x (+14 hari)
-            </p>
-          </div>
+        <div>
+          <h3
+            id="kalkulator-heading"
+            className="font-heading text-xl font-semibold tracking-tight text-ink"
+          >
+            Kalkulator Jatuh Tempo
+          </h3>
+          <p className="mt-1 text-xs text-muted">
+            Masa pinjam 14 hari, perpanjangan 1x (+14 hari)
+          </p>
         </div>
 
         <div className="mt-5">
@@ -80,33 +74,33 @@ export default function DueDateCalculator() {
             max={todayISO}
             value={borrowedDate}
             onChange={(event) => setBorrowedDate(event.target.value)}
-            className="h-11 w-full rounded-[10px] border border-line bg-white px-3.5 text-sm text-ink transition-colors focus:border-brand"
+            className="h-11 w-full rounded-lg border border-field-border bg-white px-3.5 text-sm text-ink transition-colors focus:border-brand"
           />
         </div>
 
         <div className="mt-5" aria-live="polite">
           {!calculation && (
-            <div className="rounded-card border border-dashed border-line bg-surface p-4 text-sm text-muted">
+            <div className="rounded-card border border-dashed border-field-border bg-white p-4 text-sm text-muted">
               Pilih tanggal pinjam untuk melihat batas pengembalian dan sisa hari.
             </div>
           )}
 
           {calculation?.error && (
-            <div className="rounded-card border border-danger/20 bg-danger-soft p-4 text-sm text-danger">
+            <div className="rounded-card border border-danger/25 bg-danger-soft p-4 text-sm text-danger">
               {calculation.error}
             </div>
           )}
 
           {calculation && !calculation.error && (
-            <div className="grid gap-3 rounded-card border border-line bg-surface p-4">
-              <div className="flex items-center justify-between gap-2 border-b border-line pb-3">
+            <div className="grid gap-3 rounded-card border border-line bg-white p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line pb-3">
                 <span className="text-xs font-medium text-muted">Status saat ini</span>
                 <span
-                  className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                  className={`rounded-md px-2.5 py-0.5 text-xs font-medium ${
                     calculation.statusTone === 'danger'
                       ? 'bg-danger-soft text-danger'
-                      : calculation.statusTone === 'brand'
-                        ? 'bg-brand-soft text-brand'
+                      : calculation.statusTone === 'accent'
+                        ? 'bg-accent-soft text-accent'
                         : 'bg-success-soft text-success'
                   }`}
                 >

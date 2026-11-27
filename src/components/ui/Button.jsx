@@ -7,17 +7,19 @@ export default function Button({
   ...props
 }) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-[10px] font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none';
+    'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
-    primary: 'bg-brand text-white hover:bg-brand-hover active:bg-brand-hover',
+    primary:
+      'bg-brand text-white hover:bg-brand-hover active:bg-brand-hover disabled:hover:bg-brand',
     secondary:
-      'border border-line bg-white text-ink hover:border-brand/40 hover:bg-surface active:bg-brand-soft/50',
-    ghost: 'text-ink hover:bg-surface active:bg-line/50',
+      'border border-field-border bg-white text-ink hover:border-brand hover:bg-paper active:bg-brand-soft/60 disabled:hover:border-field-border disabled:hover:bg-white',
+    ghost:
+      'text-ink hover:bg-surface active:bg-line/70 disabled:hover:bg-transparent',
   };
 
   const sizes = {
-    sm: 'min-h-10 px-3.5 text-sm',
+    sm: 'min-h-11 px-3.5 text-sm sm:min-h-10',
     md: 'min-h-11 px-5 text-sm',
   };
 

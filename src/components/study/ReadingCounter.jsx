@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, Minus, Plus, RotateCcw } from 'lucide-react';
+import { Minus, Plus, RotateCcw } from 'lucide-react';
 import Button from '../ui/Button';
 
 const DAILY_TARGET = 30;
@@ -24,21 +24,16 @@ export default function ReadingCounter() {
   return (
     <article className="flex h-full flex-col justify-between rounded-card border border-line bg-white p-6">
       <div>
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-10 items-center justify-center rounded-[10px] bg-brand-soft text-brand">
-            <BookOpen size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <h3 className="font-heading text-lg font-semibold tracking-tight text-ink">
-              Penghitung Halaman
-            </h3>
-            <p className="text-xs text-muted">
-              Catat jumlah halaman yang dibaca hari ini
-            </p>
-          </div>
+        <div>
+          <h3 className="font-heading text-xl font-semibold tracking-tight text-ink">
+            Penghitung Halaman
+          </h3>
+          <p className="mt-1 text-xs text-muted">
+            Catat jumlah halaman yang dibaca hari ini
+          </p>
         </div>
 
-        <div className="mt-6 rounded-card border border-line bg-surface p-5 text-center">
+        <div className="mt-5 rounded-card border border-line bg-paper p-5 text-center">
           <p className="text-xs font-medium text-muted">Halaman dibaca</p>
           <p
             aria-live="polite"
@@ -68,7 +63,7 @@ export default function ReadingCounter() {
         {pages >= DAILY_TARGET && (
           <p
             role="status"
-            className="mt-3 rounded-[10px] border border-success/20 bg-success-soft px-3.5 py-2 text-xs font-medium text-success"
+            className="mt-3 rounded-lg border border-success/25 bg-success-soft px-3.5 py-2 text-xs font-medium text-success"
           >
             Target baca harian {DAILY_TARGET} halaman tercapai.
           </p>

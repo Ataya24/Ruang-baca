@@ -11,12 +11,12 @@ export default function ClubSchedule() {
   );
 
   return (
-    <Section id="klub-baca" surface ariaLabelledby="klub-baca-heading">
+    <Section id="klub-baca" tone="surface" ariaLabelledby="klub-baca-heading">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
           <h2
             id="klub-baca-heading"
-            className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
+            className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
           >
             Jadwal Klub Baca
           </h2>
@@ -30,11 +30,11 @@ export default function ClubSchedule() {
       </div>
 
       {clubSchedule.length === 0 ? (
-        <p className="mt-8 rounded-card border border-dashed border-line bg-surface p-8 text-center text-sm text-muted">
+        <p className="mt-8 rounded-card border border-dashed border-field-border bg-white p-8 text-center text-sm text-muted">
           Belum ada jadwal Klub Baca terbaru.
         </p>
       ) : (
-        <ol className="mt-8 grid gap-4 md:grid-cols-2">
+        <ol className="mt-8 grid gap-3">
           {clubSchedule.map((item, index) => {
             const dateInfo = upcomingDates[index];
             const isNearest = index === 0;
@@ -42,17 +42,17 @@ export default function ClubSchedule() {
             return (
               <li
                 key={item.id}
-                className={`flex gap-4 rounded-card border p-5 transition-colors ${
+                className={`flex flex-col gap-4 rounded-card border p-5 transition-colors sm:flex-row sm:items-center ${
                   isNearest
-                    ? 'border-brand/40 bg-brand-soft/40'
-                    : 'border-line bg-white hover:border-brand/30'
+                    ? 'border-accent/40 bg-white'
+                    : 'border-line bg-paper hover:border-brand/40'
                 }`}
               >
                 <div
-                  className={`flex w-16 shrink-0 flex-col items-center justify-center rounded-[10px] border py-2.5 text-center ${
+                  className={`flex w-16 shrink-0 flex-col items-center justify-center rounded-lg border py-2.5 text-center ${
                     isNearest
-                      ? 'border-brand bg-brand text-white'
-                      : 'border-line bg-surface text-ink'
+                      ? 'border-accent bg-accent text-white'
+                      : 'border-line bg-white text-ink'
                   }`}
                 >
                   <span className="font-heading text-2xl leading-none font-semibold">
@@ -60,7 +60,7 @@ export default function ClubSchedule() {
                   </span>
                   <span
                     className={`mt-1 text-xs font-medium uppercase ${
-                      isNearest ? 'text-white/90' : 'text-muted'
+                      isNearest ? 'text-white/95' : 'text-muted'
                     }`}
                   >
                     {dateInfo.monthShort}
@@ -72,10 +72,10 @@ export default function ClubSchedule() {
                     <span className="text-xs font-medium text-muted">
                       {dateInfo.fullLabel} · 16.00 WIB
                     </span>
-                    {isNearest && <Badge tone="brand">Jadwal terdekat</Badge>}
+                    {isNearest && <Badge tone="accent">Jadwal terdekat</Badge>}
                   </div>
 
-                  <h3 className="mt-1.5 font-heading text-base font-semibold tracking-tight text-ink">
+                  <h3 className="mt-1 font-heading text-lg font-semibold tracking-tight text-ink">
                     <a
                       href={`#buku-${item.id}`}
                       className="transition-colors hover:text-brand hover:underline"
@@ -86,10 +86,11 @@ export default function ClubSchedule() {
                   <p className="mt-0.5 text-sm text-muted">
                     oleh {item.penulis} · Moderator: {item.pembahas}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {item.catatan}
-                  </p>
                 </div>
+
+                <p className="text-sm leading-relaxed text-muted sm:max-w-xs sm:text-right">
+                  {item.catatan}
+                </p>
               </li>
             );
           })}

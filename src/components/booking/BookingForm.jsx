@@ -46,13 +46,13 @@ export default function BookingForm() {
             id="booking-nama"
             type="text"
             autoComplete="name"
-            placeholder="Contoh: Budi Santoso"
+            placeholder="Nama lengkap pemesan"
             value={booking.name}
             onChange={(event) => booking.setName(event.target.value)}
             aria-invalid={booking.errors.name ? 'true' : 'false'}
             aria-describedby={booking.errors.name ? 'err-nama' : undefined}
-            className={`h-11 w-full rounded-[10px] border bg-white px-3.5 text-sm text-ink placeholder:text-muted transition-colors ${
-              booking.errors.name ? 'border-danger' : 'border-line focus:border-brand'
+            className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm text-ink placeholder:text-muted transition-colors ${
+              booking.errors.name ? 'border-danger' : 'border-field-border focus:border-brand'
             }`}
           />
           {booking.errors.name && (
@@ -77,8 +77,8 @@ export default function BookingForm() {
               onChange={(event) => booking.handleDateChange(event.target.value)}
               aria-invalid={booking.errors.date ? 'true' : 'false'}
               aria-describedby={booking.errors.date ? 'err-tanggal' : undefined}
-              className={`h-11 w-full rounded-[10px] border bg-white px-3.5 text-sm text-ink transition-colors ${
-                booking.errors.date ? 'border-danger' : 'border-line focus:border-brand'
+              className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm text-ink transition-colors ${
+                booking.errors.date ? 'border-danger' : 'border-field-border focus:border-brand'
               }`}
             />
             {booking.errors.date && (
@@ -102,8 +102,8 @@ export default function BookingForm() {
               onChange={(event) => booking.setPeople(event.target.value)}
               aria-invalid={booking.errors.people ? 'true' : 'false'}
               aria-describedby={booking.errors.people ? 'err-orang' : undefined}
-              className={`h-11 w-full rounded-[10px] border bg-white px-3.5 text-sm text-ink transition-colors ${
-                booking.errors.people ? 'border-danger' : 'border-line focus:border-brand'
+              className={`h-11 w-full rounded-lg border bg-white px-3.5 text-sm text-ink transition-colors ${
+                booking.errors.people ? 'border-danger' : 'border-field-border focus:border-brand'
               }`}
             />
             {booking.errors.people && (

@@ -5,11 +5,11 @@ import BookRecommendations from './BookRecommendations';
 
 export default function StudyCornerSection() {
   return (
-    <Section id="pojok-belajar" surface ariaLabelledby="pojok-belajar-heading">
+    <Section id="pojok-belajar" tone="surface" ariaLabelledby="pojok-belajar-heading">
       <div className="max-w-2xl">
         <h2
           id="pojok-belajar-heading"
-          className="font-heading text-[26px] font-semibold tracking-tight text-ink md:text-[32px]"
+          className="font-heading text-[clamp(1.75rem,3vw,2.25rem)] leading-tight font-semibold tracking-tight text-ink"
         >
           Pojok Belajar
         </h2>

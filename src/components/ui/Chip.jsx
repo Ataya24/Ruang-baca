@@ -8,10 +8,10 @@ export default function Chip({
     <button
       type="button"
       aria-pressed={active}
-      className={`inline-flex min-h-11 items-center justify-center rounded-full px-4 text-sm font-medium transition-colors sm:min-h-10 ${
+      className={`inline-flex min-h-11 items-center justify-center rounded-lg px-3.5 text-sm font-medium transition-colors sm:min-h-10 ${
         active
-          ? 'bg-brand text-white'
-          : 'border border-line bg-white text-ink hover:border-brand/40 hover:bg-surface'
+          ? 'border border-brand bg-brand text-white'
+          : 'border border-field-border bg-white text-ink hover:border-brand hover:bg-paper active:bg-brand-soft/60'
       } ${className}`.trim()}
       {...props}
     >

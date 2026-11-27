@@ -30,10 +30,10 @@ export default function SlotPicker({
             type="button"
             onClick={onReload}
             aria-label="Muat ulang ketersediaan slot"
-            className="inline-flex min-h-8 items-center gap-1 rounded-md border border-line bg-white px-2 text-xs font-medium text-ink transition-colors hover:border-brand/40 hover:bg-surface"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-field-border bg-white px-3 text-xs font-medium text-ink transition-colors hover:border-brand hover:bg-paper sm:min-h-10"
           >
             <RefreshCw
-              size={12}
+              size={13}
               aria-hidden="true"
               className={isReloading ? 'animate-spin' : ''}
             />
@@ -43,7 +43,7 @@ export default function SlotPicker({
       </div>
 
       {isWeekend ? (
-        <div className="rounded-card border border-line bg-surface p-4 text-sm text-muted">
+        <div className="rounded-card border border-line bg-paper p-4 text-sm text-muted">
           Ruang Diskusi tutup pada hari Sabtu dan Minggu. Silakan pilih tanggal antara Senin sampai Jumat.
         </div>
       ) : (
@@ -68,12 +68,12 @@ export default function SlotPicker({
                 aria-checked={isSelected}
                 disabled={!isAvailable}
                 onClick={() => onSelect(slot)}
-                className={`flex min-h-14 flex-col items-start justify-center rounded-[10px] px-3.5 py-2 text-left transition-colors ${
+                className={`flex min-h-14 flex-col items-start justify-center rounded-lg px-3.5 py-2 text-left transition-colors ${
                   isSelected
                     ? 'border border-brand bg-brand text-white'
                     : isAvailable
-                      ? 'border border-line bg-white text-ink hover:border-brand hover:bg-brand-soft/40'
-                      : 'cursor-not-allowed border border-line/80 bg-surface text-muted'
+                      ? 'border border-field-border bg-white text-ink hover:border-brand hover:bg-brand-soft/50'
+                      : 'cursor-not-allowed border border-line bg-surface text-muted'
                 }`}
               >
                 <span
